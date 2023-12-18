@@ -6,6 +6,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <title>NAVER</title>
     <style>
+        *{
+            box-sizing: border-box;
+        }
         :root{
             --color_title: #080808;
             --color_title_rgb: 8,8,8;
@@ -81,54 +84,84 @@
                     width: 1280px;
                     background-color:yellowgreen;
                     display: inline-block;
+                
                 }
-                #header-hamburger{
+                #header{
+                   text-align: left;
+                   position: relative;
+                }
+                #header-hamburger,#header-navertalk,#header-notice,#header-naverpay{
                     position: absolute;
                     top: 18px;
-                    left: -10px;
                     padding: 10px;
                     display: inline-block;
                     background: none;
                     border: none;
                     cursor: pointer;
                 }
-        #header{
-            text-align: left;
-            position: relative;
-        }
-        #header-hamburger > div {
-            background-image: url(./sp_main.png);
-            width: 26px; height: 26px;
-            background-size: 433px 412px;
-            background-position: -335px -81px;
-            background-repeat: no-repeat;
-        }
-        #header-hamburger:hover::before{
-            position : absolute;
-            left: 1px;
-            top: 1px;
-            content:'';
-            width:44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: #e7eced;
-        }
-        #header-hamburger:hover>div{
-            position: relative;
-            left: 1px;
-            top: 1px;
-        }
-        #main{
-            height: 2000px;
-        }
-        .blind{
-            position: absolute;
-            clip: rect(0000);
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-        }
+                #header-hamburger:hover::before, #header-navertalk:hover::before, #header-notice:hover::before, #header-naverpay:hover::before{
+                    position : absolute;
+                    left: 1px;
+                    top: 1px;
+                    content:'';
+                    width:44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background-color: #e7eced;
+                }
+                #header-hamburger > div, #header-notice > div, #header-navertalk > div, #header-naverpay > div{
+                    background-image: url(./sp_main.png);
+                    width: 26px; height: 26px;
+                    background-size: 433px 412px;
+                    background-repeat: no-repeat;
+                }
+                #header-hamburger:hover>div,#header-notice:hover>div,#header-navertalk:hover>div,#header-naverpay:hover>div{
+                    position: relative;
+                    left: 1px;
+                    top: 1px;
+                }
+                #header-hamburger{
+                    left: -10px;
+                }
+       
+                #header-hamburger > div {
+                    width: 26px; height: 26px;
+                    background-position: -335px -81px;
+                }
+                #header-navertalk{
+                    right: 40px;
+                }
+       
+                #header-navertalk > div {
+                    background-position: -335px -189px;
+                }
+                #header-notice{
+                    right: -10px;
+                }
+       
+                #header-notice > div {
+                    background-position: -335px -135px;
+                }
+                #header-naverpay{
+                    left: 43px;
+                    padding: 7px;
+                }
+       
+                #header-naverpay > div {
+                    width: 32px; height: 32px;
+                    background-position: -295px -177px;
+                }
+                #main{
+                    height: 2000px;
+                }
+                .blind{
+                    position: absolute;
+                    clip: rect(0000);
+                    width: 1px;
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                }
     </style>
 </head>
 <body>
@@ -140,6 +173,23 @@
                     <div><span class="blind">확장 영역</span></div>
                     <!-- ::after -->
                 </button>
+                <button id="header-navertalk">
+                    <!-- ::before -->
+                    <div><span class="blind">네이버 톡</span></div>
+                    <!-- ::after -->
+                </button>
+                <button id="header-notice">
+                    <!-- ::before -->
+                    <div><span class="blind">알림</span></div>
+                    <!-- ::after -->
+                </button>
+                <button id="header-naverpay">
+                    <!-- ::before -->
+                    <div><span class="blind">네이버페이</span></div>
+                    <!-- ::after -->
+                </button>
+
+
             </div>
             <div id="search"></div>
             <div id="nav"></div>

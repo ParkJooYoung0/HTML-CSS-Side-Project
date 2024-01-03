@@ -605,12 +605,12 @@
                     width: 1px;
                     height: 12px
                 }
-                #main-newstand-animation a:first-of-type {
+                #main-newstand-animation > a:first-of-type {
                     position: relative;
                     top: -2px;
                     line-height: 26px;
                 }
-                #main-newstand-animation a:first-of-type::after{
+                #main-newstand-animation > a:first-of-type::after{
                     content:'';
                     display: inline-block;
                     width: 3px;
@@ -621,7 +621,44 @@
                     border-radius: 50%;
                     vertical-align: 5px;
                 }
-                #main-newstand-animation a:last-of-type{
+                @keyframes newsAnimation {
+                    0%{
+                        transform: translateY(0);
+                    }
+                    16.666%{
+                        transform: translateY(0);
+                    }
+                    33.333%{
+                        transform: translateY(-26px);
+                    }
+                    50%{
+                        transform: translateY(-26px);
+                    }
+                    66.666%{
+                        transform: translateY(-52px);
+                    }
+                    83.333%{
+                        transform: translateY(-52px);
+                    }
+                    91.66666%%{
+                        transform: translateY(-65px);
+                    }
+                    91.6667%{
+                        transform: translateY(13px);
+                    }
+                    100%{
+                        transform: translateY(0);
+                    }
+                    }
+                #main-newstand-animation-target {
+                    width: 400px;
+                    display: inline-block;
+                    overflow: hidden;
+                }
+                #main-newstand-animation-target > div {
+                    animation: newsAnimation 5s infinite;
+                }
+                #main-newstand-animation-target a {
                     text-overflow: ellipsis;
                     width: 400px;
                     white-space: nowrap;
@@ -784,6 +821,8 @@
                 }
                 #main-shopping-gray {
                     display: flex;
+                    font-size: 1.4rem;
+                    line-height: 20px;
                 }
                 #main-shopping-gray .left {
                     width: 668px;
@@ -791,6 +830,11 @@
                     height: 50px;
                     padding: 15px 20px 14px;
                     display: flex;
+                }
+                #main-shopping-gray .left > a:first-of-type {
+                    padding-right: 19px;
+                    font-weight: 700;
+                    line-height: 21px;
                 }
                 #main-shopping-gray .right {
                     margin-left: auto;
@@ -930,7 +974,13 @@
                                     <a href="#">전체언론사</a>
                                     <div id="main-newstand-animation">
                                         <a href="#">연합뉴스</a>
-                                        <a href="#">오늘 12월 30일 오전 부터 수도권에 대설 주의보 조심할 것 그리고 곧 2023년이 지나고 2024년 올 것</a>
+                                        <div id="main-newstand-animation-target">
+                                            <div>
+                                                <a href="#">오늘 12월 30일 오전 부터 수도권에 대설 주의보 조심할 것 그리고 곧 2023년이 지나고 2024년 올 것</a>
+                                                <a href="#">2023년 가장 인기 있었던 영화는?</a>
+                                                <a href="#">올 겨울 지구온난화로 이상기후가 보여</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>    
                                 <div class="right">               
